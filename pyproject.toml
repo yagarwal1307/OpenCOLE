@@ -9,12 +9,10 @@ packages = [
 
 requires-python = ">=3.10.0, <3.11.0"
 dependencies = [
-    "torch==2.6.0+cu124",
-    "torchvision==0.21.0+cu124",
     "numpy<2.0.0",
     "langchain>=0.3.20",
     "bitsandbytes>=0.45.3",
-    "protobuf>=6.30.0",
+    "protobuf>=5.28.3",
     "peft>=0.14.0",
     "sentencepiece>=0.2.0",
     "compel>=2.0.3",
@@ -28,6 +26,7 @@ dependencies = [
     "huggingface-hub>=0.29.3",
     "openai>=1.65.5",
     "langchain-openai>=0.3.8",
+    "langchain-google-vertexai",
     "chromadb>=0.6.3",
     "faiss-cpu>=1.10.0",
     "seaborn>=0.13.2",

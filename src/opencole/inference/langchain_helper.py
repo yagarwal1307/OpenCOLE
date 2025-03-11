@@ -26,6 +26,7 @@ from langchain_core.prompts.chat import (
 )
 from langchain_core.prompts.few_shot import FewShotChatMessagePromptTemplate
 from langchain_openai import AzureChatOpenAI
+from langchain_google_vertexai import ChatVertexAI
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
 logger = logging.getLogger(__name__)
@@ -94,10 +95,11 @@ def setup_model(
             repo_id=repo_id, model_kwargs={"temperature": 0, "max_length": 64}
         )
     elif azure_openai_model_name is not None:
-        model = AzureChatOpenAI(
-            deployment_name=azure_openai_model_name,
-            model_name=azure_openai_model_name,
-            openai_api_version=os.getenv("OPENAI_API_VERSION"),
+        model = ChatVertexAI(
+            model_name="gemini-pro"
+            # deployment_name=azure_openai_model_name,
+            # model_name=azure_openai_model_name,
+            # openai_api_version=os.getenv("OPENAI_API_VERSION"),
         )  # type: ignore
     else:
         raise NotImplementedError("No model is specified.")
